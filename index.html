@@ -126,7 +126,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a>
+						<a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a>
 					</div>
 				</section>
 				
@@ -208,10 +208,10 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-2015-08-03-New_blog" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2015-08-03-Layout" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/08/18/2015-08-03-New_blog/" class="article-date">
+      <a href="/2015/08/18/2015-08-03-Layout/" class="article-date">
   	<time datetime="2015-08-17T16:00:00.000Z" itemprop="datePublished">2015-08-18</time>
 </a>
     </div>
@@ -225,7 +225,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/18/2015-08-03-New_blog/">新博客</a>
+      <a class="article-title" href="/2015/08/18/2015-08-03-Layout/">CSS布局</a>
     </h1>
   
 
@@ -234,7 +234,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Hello_World">Hello World</h3><p>新博客完成。这个博客是基于Hexo框架生成的静态页面博客。其实我在博客这条路上的路线是WordPress，Octopress，Jekyll，Hexo，后面三个模板引擎很相似，按照Jekyll官方文档学一遍也就上手了。这个博客主题由主题<a href="https://github.com/litten/hexo-theme-yilia">yilia</a>修改而来，样式参照了Octopress主题<a href="https://github.com/shashankmehta/greyshade">greyshade</a>。<br>在这个过程中，除了基本的HTML5，CSS3，JavaScript需要学习，还有额外的Liquid，Ruby(Basics)，Sass，Compass，Stylus。compass对于sass，也就是rails对于ruby，提供了许多mixins，也就是提供了一个函数库，功能强大。作为菜鸟一只我也是刚学，前端菜鸟们最好得点上sass，compass，bootstrap这几个初级技能点。下面分享一下我在搭建和移植博客过程中遇到的问题。<br>
+        <h3 id="圣杯布局">圣杯布局</h3><p>在设计一个网页的时候，首先要把网页框架搭好，作为新手，当然是从最经典的双栏布局和三栏布局开始啦。对于固定宽度栏+自适应宽度栏的布局，我们可以想到好几种简单的方法。比如侧边栏使用<code>position: absolute;</code>，主页面使用<code>margin-left: &lt;width&gt;px;</code>，这种方法的缺点是侧边栏过长，主页面短，于是把footer盖住。那如果侧边栏使用<code>float: left;</code>，footer使用<code>clear: both;</code>就能解决了，但是这时候是侧边栏先加载，主页面后加载。所以要想主页面先加载，就需要用到经典圣杯布局（The holy grail layout）了。</p>
+<p><img src="/assets/blog/holy_grail_layout.png"></p>
+
       
     </div>
     
@@ -242,18 +244,77 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jekyll/">Jekyll</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
 	</div>
 
       
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+	<a class="article-category-link" href="/categories/前端基础/">前端基础</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-2015-08-03-New_blog" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/17/2015-08-03-New_blog/" class="article-date">
+  	<time datetime="2015-08-16T16:00:00.000Z" itemprop="datePublished">2015-08-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/17/2015-08-03-New_blog/">新博客</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Hello_World">Hello World</h3><p>新博客完成。这个博客是基于Hexo框架生成的静态页面博客。其实我在博客这条路上的路线是WordPress，Octopress，Jekyll，Hexo，后面三个模板引擎很相似，按照Jekyll官方文档学一遍也就上手了。这个博客主题由主题<a href="https://github.com/litten/hexo-theme-yilia">yilia</a>修改而来，样式参照了Octopress主题<a href="https://github.com/shashankmehta/greyshade">greyshade</a>。</p>
+<p>在这个过程中，除了基本的HTML5，CSS3，JavaScript需要学习，还有额外的Liquid，Ruby(Basics)，Sass，Compass，Stylus。compass对于sass，也就是rails对于ruby，提供了许多mixins，也就是提供了一个函数库，功能强大。作为菜鸟一只我也是刚学，前端菜鸟们最好得点上sass，compass，bootstrap这几个初级技能点。下面分享一下我在搭建和移植博客过程中遇到的问题。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jekyll/">Jekyll</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nodejs/">Nodejs</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/前端基础/">前端基础</a>
 	</div>
 
 
       
         <p class="article-more-link">
-          <a  href="/2015/08/18/2015-08-03-New_blog/#more">more >></a>
+          <a  href="/2015/08/17/2015-08-03-New_blog/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
