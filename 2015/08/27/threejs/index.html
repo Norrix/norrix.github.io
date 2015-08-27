@@ -8,13 +8,13 @@
   <meta name="description" content="嗯这个3D效果看起来吊吊的，居然还能用JavaScript实现，赶紧学习一发。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Three.js试玩">
-<meta property="og:url" content="http://yoursite.com/2015/08/22/threejs/index.html">
+<meta property="og:url" content="http://yoursite.com/2015/08/27/threejs/index.html">
 <meta property="og:site_name" content="Norrix's Blog">
 <meta property="og:description" content="嗯这个3D效果看起来吊吊的，居然还能用JavaScript实现，赶紧学习一发。">
 <meta property="og:image" content="http://yoursite.com/assets/blog/threejs_water.jpg">
 <meta property="og:image" content="http://yoursite.com/assets/blog/threejs_html5.gif">
-<meta property="og:image" content="http://yoursite.com/assets/blog/threejs_my_first_cube.png">
-<meta property="og:updated_time" content="2015-08-27T09:26:18.000Z">
+<meta property="og:image" content="http://yoursite.com/assets/blog/threejs_my_first_cube.jpg">
+<meta property="og:updated_time" content="2015-08-27T09:41:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Three.js试玩">
 <meta name="twitter:description" content="嗯这个3D效果看起来吊吊的，居然还能用JavaScript实现，赶紧学习一发。">
@@ -213,8 +213,8 @@
       <div class="body-wrap"><article id="post-threejs" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/08/22/threejs/" class="article-date">
-  	<time datetime="2015-08-21T16:00:00.000Z" itemprop="datePublished">2015-08-22</time>
+      <a href="/2015/08/27/threejs/" class="article-date">
+  	<time datetime="2015-08-26T16:00:00.000Z" itemprop="datePublished">2015-08-27</time>
 </a>
     </div>
   
@@ -251,17 +251,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="玩什么">玩什么</h3><p>前几天我才知道，以前在网上看到的酷炫HTML5制作的3D效果，其实是WebGL的功劳。HTML5的Canvas元素作为DOM接口，就可以利用WebGL做出酷炫效果了。有一个非常著名的Water WebGL Demo，实现了一个球在水中的场景，并可以通过鼠标移动这个球，水波进行实时渲染。<br><a id="more"></a><br><img src="/assets/blog/threejs_water.jpg" title="WebGL Water"><br><a href="http://madebyevan.com/webgl-water/" target="_blank" rel="external">demo</a></p>
+        <h3 id="玩什么">玩什么</h3><p>前几天我才知道，以前在网上看到的酷炫HTML5制作的3D效果，其实是WebGL的功劳。HTML5的Canvas元素作为DOM接口，就可以利用WebGL做出酷炫效果了。有一个非常著名的Water WebGL Demo，实现了一个球在水中的场景，并可以通过鼠标移动这个球，水波进行实时渲染。<br><a href="http://madebyevan.com/webgl-water/" target="_blank" rel="external">demo</a><br><a id="more"></a><br><img src="/assets/blog/threejs_water.jpg" title="WebGL Water"></p>
 <p>但是我觉得这个对新手来说难度太高了吧，不如找个简单一些的，看能不能上手玩一玩，于是我找到了这个。<br><img src="/assets/blog/threejs_html5.gif" title="3D HTML5"><br><a href="http://glecollinet.github.io/webgl-demo/" target="_blank" rel="external">demo</a></p>
+<p>这个看起来也很有趣，感兴趣的话可以点开demo看看。</p>
 <h3 id="怎么玩">怎么玩</h3><blockquote>
 <p>那么问题来了，怎么玩？</p>
 </blockquote>
-<p>作为初级玩家，当然是从简单的开始咯。先稍微看一下<a href="http://www.hewebgl.com/article/getarticle/27" target="_blank" rel="external">WebGL教程</a>…再读一下<a href="https://www.baidu.com/s?ie=UTF-8&amp;wd=threejs%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97" target="_blank" rel="external">threejs入门指南</a>…再欣赏一下<a href="http://threejs.org/" target="_blank" rel="external">threejs官网</a>给出的样例。然后我就可以做出这个，当然你也可以做出这个…</p>
+<p>作为初级玩家，当然是从简单的开始咯。先稍微看一下<a href="http://www.hewebgl.com/article/getarticle/27" target="_blank" rel="external">WebGL教程</a>…再读一下<a href="https://www.baidu.com/s?ie=UTF-8&amp;wd=threejs%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97" target="_blank" rel="external">threejs入门指南</a>…再欣赏一下<a href="http://threejs.org/" target="_blank" rel="external">threejs官网</a>给出的样例。然后就可以做出这个简单的方块动画…</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">title</span>&gt;</span>My first cube<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../three.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">            <span class="keyword">var</span> scene = <span class="keyword">new</span> THREE.Scene(); <span class="comment">//场景</span></span><br><span class="line">            <span class="keyword">var</span> camera = <span class="keyword">new</span> THREE.PerspectiveCamera(<span class="number">50</span>, <span class="number">300</span>/<span class="number">300</span>, <span class="number">1</span>, <span class="number">50</span>); <span class="comment">//照相机</span></span><br><span class="line">            camera.position.set(<span class="number">0</span>, <span class="number">0</span>, <span class="number">5</span>);</span><br><span class="line">            scene.add(camera);</span><br><span class="line">            <span class="keyword">var</span> light = <span class="keyword">new</span> THREE.AmbientLight(<span class="number">0xffffff</span>); <span class="comment">//灯光</span></span><br><span class="line">            scene.add(light);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> geometry = <span class="keyword">new</span> THREE.BoxGeometry(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>); <span class="comment">//几何体</span></span><br><span class="line">            <span class="keyword">var</span> material = <span class="keyword">new</span> THREE.MeshBasicMaterial(&#123;color: <span class="number">0xff0000</span>&#125;); <span class="comment">//材质</span></span><br><span class="line">            <span class="keyword">var</span> cube = <span class="keyword">new</span> THREE.Mesh(geometry, material); <span class="comment">//Meshify</span></span><br><span class="line">            scene.add(cube);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> renderer = <span class="keyword">new</span> THREE.WebGLRenderer(); <span class="comment">//渲染器</span></span><br><span class="line">            renderer.setSize(<span class="number">300</span>, <span class="number">300</span>);</span><br><span class="line">            <span class="built_in">document</span>.body.appendChild(renderer.domElement); <span class="comment">//添加Canvas到HTML</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                cube.rotation.x = (cube.rotation.x + <span class="number">0.1</span>) % (<span class="built_in">Math</span>.PI * <span class="number">2</span>); <span class="comment">// X方向旋转</span></span><br><span class="line">                cube.rotation.y = (cube.rotation.y + <span class="number">0.05</span>) % (<span class="built_in">Math</span>.PI * <span class="number">2</span>); <span class="comment">// Y方向旋转</span></span><br><span class="line">                renderer.render(scene, camera); <span class="comment">// rendering</span></span><br><span class="line">                requestAnimationFrame(draw); <span class="comment">// callback</span></span><br><span class="line">            &#125;</span><br><span class="line">            draw();</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>别忘了把js地址换成你自己的，文件到threejs的github就能下，或者直接到cdn拷一份。</p>
 </blockquote>
-<p>见证第一个cube的诞生（这个是静态图，浏览器里面就是这个方块在转，懒得截图了…）<br><img src="/assets/blog/threejs_my_first_cube.png" title="My first cube"></p>
+<p>见证第一个cube的诞生<br><img src="/assets/blog/threejs_my_first_cube.jpg" title="My first cube"></p>
+<p>这个代码已经很简洁了，可以自己改改参数玩玩看。</p>
 <h3 id="自己建模">自己建模</h3><blockquote>
 <p>就弄个方块，有意思吗，没意思。</p>
 </blockquote>
@@ -275,18 +277,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/08/22/react_intro_series_1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          React入门系列1——初识
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/08/18/holy_grail_layout/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">经典圣杯布局</div>
+    <a href="/2015/08/22/react_intro_series_1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React入门系列1——初识</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
