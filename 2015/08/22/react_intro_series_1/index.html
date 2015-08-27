@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>React入门系列1——初识 | Norrix&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="React入门系列文章，将介绍如何利用React.js前端框架进行web开发。通过学习React的组件化特性、单向数据绑定方式与函数式编程思想，完善前端知识体系，增加对前端架构的理解，点亮新的技能点。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React入门系列1——初识">
+<meta property="og:url" content="http://yoursite.com/2015/08/22/react_intro_series_1/index.html">
+<meta property="og:site_name" content="Norrix's Blog">
+<meta property="og:description" content="React入门系列文章，将介绍如何利用React.js前端框架进行web开发。通过学习React的组件化特性、单向数据绑定方式与函数式编程思想，完善前端知识体系，增加对前端架构的理解，点亮新的技能点。">
+<meta property="og:image" content="http://yoursite.com/assets/blog/react_intro_series_1_comment_box.png">
+<meta property="og:image" content="http://yoursite.com/assets/blog/react_intro_series_1_always_re-render.png">
+<meta property="og:updated_time" content="2015-08-27T07:21:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React入门系列1——初识">
+<meta name="twitter:description" content="React入门系列文章，将介绍如何利用React.js前端框架进行web开发。通过学习React的组件化特性、单向数据绑定方式与函数式编程思想，完善前端知识体系，增加对前端架构的理解，点亮新的技能点。">
+  
+    <link rel="alternative" href="/atom.xml" title="Norrix&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/assets/images/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/assets/images/norrix.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+            <h1 class="header-author"><a href="/">norrix</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">己を信じ、精进せよ！</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon">
+                    <div class="icon-ctn">
+						<div class="icon-wrap icon-ribbon" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+                    </div>
+                </div>
+                
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-link" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="icon">
+                    <div class="icon-ctn">
+						<div class="icon-wrap icon-me" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+                    </div>
+                </div>
+                
+            </div>
+
+				<!--<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>-->
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">若一直局限于自己的领域是无法做出极具创造性的工作的</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">norrix</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/assets/images/norrix.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">norrix</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">己を信じ、精进せよ！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-react_intro_series_1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/22/react_intro_series_1/" class="article-date">
+  	<time datetime="2015-08-21T16:00:00.000Z" itemprop="datePublished">2015-08-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React入门系列1——初识
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/React/">React</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="关于作者">关于作者</h3><p>norrix = 菜鸟程序员<br>blog = norrix.github.io<br>转载请注明出处：<a href="http://norrix.github.io/2015/08/22/react_intro_series_1/" target="_blank" rel="external">http://norrix.github.io/2015/08/22/react_intro_series_1/</a><br>[虽然我知道没人会转但我还是得声明一下(・`ω´・)]</p>
+<h2 id="什么是React">什么是React</h2><blockquote>
+<p>React是一个创建可复用、相互独立web组件的js库。</p>
+</blockquote>
+<p>React适用于随着时间推移，数据大量变化的场景。当数据发生变化，在React中可以通过定义好的接口对设计元素（按钮、表单、布局等）进行复用，而且为保证组件被正确使用，React提供了validator来验证传入数据的有效性。在React中，整个UI都是组件化的，并将UI分成不同的组件，每个组件都是独立封装的，组件只需要关心自己的逻辑功能。<br><a id="more"></a><br><img src="/assets/blog/react_intro_series_1_comment_box.png" title="Blog评论组件"></p>
+<p>对于上面这个Blog评论组件，它的渲染代码只需要这样写：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> CommentBox = React.createClass(&#123;</span><br><span class="line">    render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            <span class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">className</span> = "<span class="attribute">commentBox</span>"&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">h1</span>&gt;</span>Comments<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">CommentList</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">CommentForm</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        )</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>因为React这种将UI进行web组件化的特性，使得React从Angular、Backbone和Ember这些MVC框架中脱颖而出。同时因为每个组件都是独立的，那么对于各个组件分别测试显然要比对于整个UI进行测试容易的多。</p>
+<h2 id="单向数据流">单向数据流</h2><blockquote>
+<p>首先问一个问题，怎么利用JavaScript写HTML？</p>
+</blockquote>
+<p>常用的方法是 <code>document.getElementById(&quot;div&quot;).appendChild()</code> 或者 <code>.innerHTML += &quot;&lt;p&gt;child&lt;/p&gt;&quot;</code>。但是对React来说，DOM太麻烦了，它更希望全部重新渲染一遍，并且”always re-rendering”。这就是单向流动的”数据—&gt;HTML”。<br><img src="/assets/blog/react_intro_series_1_always_re-render.png" title="Always re-render"></p>
+<p>tips: React是支持直接渲染HTML/XML标签的，但React更推荐使用的是使用JSX语法，然后由React完成转换。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// before transform (JSX):</span></span><br><span class="line"><span class="keyword">var</span> Nav;</span><br><span class="line"><span class="keyword">var</span> app = <span class="xml"><span class="tag">&lt;<span class="title">Nav</span> <span class="attribute">color</span>=<span class="value">"blue"</span> /&gt;</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// after transform (JS):</span></span><br><span class="line"><span class="keyword">var</span> Nav;</span><br><span class="line"><span class="keyword">var</span> app = React.createElement(Nav, &#123;color:<span class="string">"blue"</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// before transform (JSX):</span></span><br><span class="line">&lt;p className=<span class="string">"hello"</span>&gt;Hello, &#123;<span class="keyword">this</span>.props.name&#125;!<span class="xml"><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">// after transform (JS):</span><br><span class="line">React.createElement("p", &#123;className: "hello"&#125;, "Hello ", this.props.name)</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>好了，那么为什么要重新渲染？为什么用单向数据流？</p>
+</blockquote>
+<p>如果不重新渲染，当数据变化，页面需要修改时，你要完成<br>· 向服务器请求数据<br>· 找到需要修改的那个DOM<br>· 修改数据</p>
+<p>重要的部分就在DOM这个地方，对于含有上千甚至上万个形状的网页来说，你这个DOM太拖JS速度了，生成DOM Tree，以及DOM操作造成的浏览器堵塞都会造成卡顿，影响WebApp的使用体验。</p>
+<blockquote>
+<p>但是重新渲染这个页面，就不会卡顿了吗？</p>
+</blockquote>
+<p>React的“Virtual DOM”就是这样一个非DOM的解决方案。</p>
+<h2 id="虚拟DOM">虚拟DOM</h2><p>在更新数据并重新渲染时，React完成下面的步骤<br>· 重建DOM树<br>· 寻找与上一个DOM树的差异<br>· 生成每一个差异的最优更新方案，diff()大法好<br>· 批量完成更新方案</p>
+<p>React只是比较render返回的内容，然后再做更新。比如说<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">li</span>&gt;</span>0<span class="tag">&lt;/<span class="title">li</span>&gt;</span>                    </span><br><span class="line"><span class="tag">&lt;<span class="title">li</span>&gt;</span>1<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">li</span>&gt;</span>2<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>更新为<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">li</span>&gt;</span>4<span class="tag">&lt;/<span class="title">li</span>&gt;</span>                    </span><br><span class="line"><span class="tag">&lt;<span class="title">li</span>&gt;</span>5<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">li</span>&gt;</span>6<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>DOM：remove(), remove(), remove(), append(), append(), append()<br>React：innerHTML ‘0’ -&gt; ‘4’，’1’ -&gt; ‘5’, ‘2’ -&gt; ‘6’<br>是不是快多了？</p>
+<h2 id="React好处还有啥">React好处还有啥</h2><p>将React应用于HybridWebApp，好处大大的<br>· single-page的app支持页面与页面之间快速切换<br>· isomorphic javascript前后台通吃<br>· 渲染后生成HTML缓存，从而优化SEO</p>
+<p>End</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/08/18/holy_grail_layout/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">经典圣杯布局</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 norrix
+    	</div>
+      	<div class="footer-right">
+      		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
