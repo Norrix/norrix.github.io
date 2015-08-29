@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My First Cube</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script src="http://cdn.bootcss.com/three.js/r71/three.min.js"></script>
+        <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+        
+        <script>
+            var scene = new THREE.Scene(); //场景
+            var camera = new THREE.PerspectiveCamera(50, 300/300, 1, 50); //照相机
+            camera.position.set(0, 0, 5);
+            scene.add(camera);
+            var light = new THREE.AmbientLight(0xffffff); //灯光
+            scene.add(light);
+
+            var geometry = new THREE.BoxGeometry(1,2,3); //几何体
+            var material = new THREE.MeshBasicMaterial({color: 0xff0000}); //材质
+            var cube = new THREE.Mesh(geometry, material); //Meshify
+            scene.add(cube);
+
+            var renderer = new THREE.WebGLRenderer(); //渲染器
+            renderer.setSize(300, 300);
+            document.body.appendChild(renderer.domElement); //添加Canvas到HTML
+
+
+            function draw() {
+                cube.rotation.x = (cube.rotation.x + 0.1) % (Math.PI * 2); // X方向旋转
+                cube.rotation.y = (cube.rotation.y + 0.05) % (Math.PI * 2); // Y方向旋转
+                renderer.render(scene, camera); // rendering
+                requestAnimationFrame(draw); // callback
+            }
+            draw();
+        </script>
+    </body>
+</html>
