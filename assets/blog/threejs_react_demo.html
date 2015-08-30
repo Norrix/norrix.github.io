@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Threejs React Demo</title>
+        <meta charset="utf-8">
+        <style>
+            #react-container {
+            	height: 300px;
+            	width: 300px;
+            	z-index: 0;
+            	position: relative;
+            }
+            #react-container canvas {
+            	width: 100%;
+            	height: 100%;
+            	position: relative;
+            	z-index: 2;
+            	pointer-events: none;
+            }
+            #react-circle {
+                background: #bdf;
+                height: 200px;
+                width: 200px;
+                border-radius: 100px;
+                position: absolute;
+                z-index: 1;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+            }
+    	</style>
+    </head>
+    <body>
+        <div id="react-container">
+            <div id="react-circle"></div>
+        </div>
+
+        <script src="http://cdn.bootcss.com/three.js/r71/three.min.js"></script>
+        <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+        <script src="threejs_shifty.min.js"></script>
+        
+        <script>
+        	var rotate = false;
+            var container = document.getElementById('react-container');
+    		var $container = $(container);
+
+            var scene = new THREE.Scene();
+
+            var camera = new THREE.PerspectiveCamera(60, $container.width() / $container.height(), 1, 150);
+            camera.position.set(0, 5, 0);
+            camera.lookAt( {x:0, y:0, z:0 } );
+            scene.add(camera);
+
+            var light = new THREE.DirectionalLight(0xffffff); //光线使用点光源
+    		light.position.set(0, 1, 0);
+            scene.add(light);
+
+            var loader = new THREE.JSONLoader();
+            react = new THREE.Mesh();
+            loader.load('threejs_react_model.json', function (geometry, materials) {
+                var reactMat = new THREE.MeshFaceMaterial(materials);
+                react = new THREE.Mesh(geometry, reactMat);
+                react.position.set(0, 0, 0);
+                react.scale.set(0.7, 0.7, 0.7);
+                scene.add(react);
+            });
+
+            var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); //打开反锯齿和背景透明
+            renderer.setSize($container.width(), $container.height());
+            container.appendChild(renderer.domElement);
+
+            var $circle = $container.find('#react-circle');
+            var anim = new Tweenable();
+
+            $circle.on('mouseenter', function(){
+		    	anim.stop();
+		    	anim.tween({
+		        	from: { scale: 0.7 },
+		        	to: { scale: 1 },
+		        	duration: 500,
+		        	easing: 'easeOutQuad',
+		        	step: function(){
+		        		react.scale.set(this.scale, this.scale, this.scale);
+		        	}
+		      	});
+		    	rotate = true;
+		    });
+
+		    $circle.on('mouseleave', function(){
+		    	var xAngle = react.rotation.x;
+				switch (true) {
+					case xAngle > 0 && xAngle <= Math.PI / 2:
+						var xDestAngle = 0;
+						break;
+					case xAngle > Math.PI / 2 && xAngle <= Math.PI * 3 / 2:
+						var xDestAngle = Math.PI;
+						break;
+					default:
+						var xDestAngle = Math.PI * 2;
+				}
+				var yDestAngle = Math.floor(react.rotation.y / (Math.PI / 3)) * (Math.PI / 3);
+			    var currentScale = react.scale.x;
+
+			    anim.stop();
+			    anim.tween({
+			        from: { scale: currentScale, xAngle: react.rotation.x, yAngle: react.rotation.y },
+			        to: { scale: 0.7, xAngle: xDestAngle, yAngle: yDestAngle },
+			        duration: 500,
+			        easing: 'easeOutQuad',
+			        step: function() {
+			          react.scale.set(this.scale, this.scale, this.scale);
+			          react.rotation.x = this.xAngle;
+			          react.rotation.y = this.yAngle;
+			        }
+			    });
+			    rotate = false;
+			});
+
+            function draw(){
+                if (rotate){
+					react.rotation.x = (react.rotation.x + 0.03) % (Math.PI * 2);
+                	react.rotation.y = (react.rotation.y + 0.03) % (Math.PI * 2);
+                }
+                renderer.render(scene, camera);
+                requestAnimationFrame(draw);
+            }
+            draw();
+        </script>
+    </body>
+</html>
