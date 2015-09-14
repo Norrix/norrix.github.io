@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Norrix's Blog">
 <meta property="og:description" content="一个高效清晰的算法。">
 <meta property="og:image" content="http://yoursite.com/assets/blog/find_median_sorted_arrays.jpg">
-<meta property="og:updated_time" content="2015-09-13T08:22:00.000Z">
+<meta property="og:updated_time" content="2015-09-13T09:43:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="求两个有序数组的中位数">
 <meta name="twitter:description" content="一个高效清晰的算法。">
@@ -137,17 +137,7 @@
 				<section class="switch-part switch-part3">
 					<div id="js-friends">
 					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://norrix.github.io">我的博客</a>
 			        
 			        </div>
 				</section>
@@ -157,7 +147,7 @@
 				
 				<section class="switch-part switch-part4">
 				
-					<div id="js-aboutme">若一直局限于自己的领域是无法做出极具创造性的工作的</div>
+					<div id="js-aboutme">局限于自己的领域的工程师是无法做出极具创造性的工作的</div>
 				</section>
 				
 			</div>
@@ -258,7 +248,7 @@
 <p>不愧是大神，我怎么就没想到用findKth来简化奇偶性的讨论呢。但是这个findKth我又奇怪了，j = k - i 的时候，难道不怕数组越界？还真是不怕，注意到k的初始取值是总长度的一半，它总能让i和j在边界条件终止并退出递归。</p>
 <p>然后这个递归条件的思路是这样的：</p>
 <p><img src="/assets/blog/find_median_sorted_arrays.jpg"></p>
-<p>从运行时间上来说，每次递归丢掉了k个数，而k至少比A，B中较短的那个数组长度的一半要大，所以最差情况是O(m+n)，平均情况下是O(log(m+n))。</p>
+<p>从运行时间上来说，每次递归丢掉了k个数，而k至少比A，B中较短的那个数组长度的一半要大，所以可以达到O(log(m+n))。</p>
 
       
     </div>
@@ -295,6 +285,26 @@
 	<!-- JiaThis Button END -->
 </div>
 
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="find_median_sorted_arrays" data-title="求两个有序数组的中位数" data-url="http://yoursite.com/2015/09/13/find_median_sorted_arrays/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"norrix"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
